@@ -113,14 +113,14 @@ Authenticates using the Microsoft Authentication Library (MSAL) and connects to 
 
 ```powershell
 $password = Read-Host -Prompt "Enter certificate password" -AsSecureString
-Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -Tenant 11111111-1111-1111-1111-111111111111 -CertificatePath C:\Certs\ContosoAppAuth.pfx -CertificatePassword $password
+Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -TenantId 11111111-1111-1111-1111-111111111111 -CertificatePath C:\Certs\ContosoAppAuth.pfx -CertificatePassword $password
 ```
 Connect to the SharePoint Online service using an app identity and a certificate file path, with an optional password.
 
 ### EXAMPLE 8
 
 ```powershell
-Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -Tenant 11111111-1111-1111-1111-111111111111 -CertificateThumbprint "3FAAAA1111AAAAAAAAAAA2222AAAAAAAAAAAAAAA"
+Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -TenantId 11111111-1111-1111-1111-111111111111 -CertificateThumbprint "3FAAAA1111AAAAAAAAAAA2222AAAAAAAAAAAAAAA"
 ```
 Connect to the SharePoint Online service using an app identity and a certificate thumbprint.
 
@@ -129,7 +129,7 @@ Connect to the SharePoint Online service using an app identity and a certificate
 ```powershell
 $thumbprint = "3F2A5C9D4E7B8A1234567890ABCDEF1234567890"
 $cert = Get-ChildItem Cert:\LocalMachine\My\$thumbprint
-Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -Tenant 11111111-1111-1111-1111-111111111111 -Certificate $cert
+Connect-SPOService -Url https://contoso-admin.sharepoint.com -ClientId 00000000-0000-0000-0000-000000000000 -TenantId 11111111-1111-1111-1111-111111111111 -Certificate $cert
 ```
 Connect to the SharePoint Online service using an app identity and a certificate object.
 
